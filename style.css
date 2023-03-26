@@ -43,6 +43,7 @@ span {
     height: 100%;
     color: white;
     background-color: Teal;
+    cursor: pointer;
 }
 .button.active {
     height: 100%;
