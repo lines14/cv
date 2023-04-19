@@ -22,6 +22,12 @@ li {
 span {
     color: DarkSlateBlue;
 }
+.title {
+    display: block;
+    margin-top: -4px;
+    width: 100%;
+    height: 100%;
+}
 .main {
     display: flex;
     flex-direction: column;
@@ -121,7 +127,7 @@ span {
     display: grid;
     gap: 2px;
     grid-template-columns: auto auto;
-    grid-template-rows: auto 1fr 1fr 1fr auto auto;
+    grid-template-rows: auto 1fr 1fr 1fr 1fr auto;
     grid-template-areas:
     ". box-1"
     "box-2 box-3"
@@ -134,7 +140,7 @@ span {
     background-color: Azure;
     border-bottom: 2px solid Teal;
     border-top: 2px solid Teal;
-    padding: 18px;
+    padding: 15px;
     transition: 0.5s
 }
 [class^="box-"]:nth-child(even) {
@@ -193,6 +199,8 @@ span {
     align-items: center;
     font-size: 18px;
     line-height: 25px;
+    border-bottom: transparent;
+    border-bottom-left-radius: 90px;
 }
 .nav-list-desktop {
     height: 100%;
@@ -229,13 +237,25 @@ span {
 .summary {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 .summary-text {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    font-size: 17px;
+    font-size: 16px;
+}
+[class^="summary-text-"] {
+    text-align: justify;
+}
+.separator {
+    border: 1px solid teal;
+    opacity: 0.5;
+}
+.a1qa {
+    color: DarkSlateBlue;
+    font-weight: bold;
 }
 .me {
     display: flex;
@@ -247,10 +267,12 @@ span {
 }
 .speciality {
     align-self: flex-end;
+    text-align: right;
 }
 .skills {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 .skills-lists {
     display: flex;
@@ -280,21 +302,30 @@ span {
 .contacts {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 .contacts-list {
     align-self: flex-end;
-    font-size: 17px;
+    font-size: 16px;
 }
 .contacts-item {
     display: flex;
 }
 .socials {
-    margin-bottom: -3px;
+    margin-top: 1px;
     margin-right: 8px;
+}
+.flag {
+    margin-top: 2px;
+    margin-left: 8px;
+}
+.remote {
+    text-align: right;
 }
 .projects {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 .projects-lists {
     display: flex;
@@ -302,6 +333,7 @@ span {
 }
 .projects-item {
     display: flex;
+    font-size: 16px;
 }
 .english {
     display: flex;
@@ -322,9 +354,11 @@ span {
 .education {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 .education-item {
-    font-size: 17px;
+    font-size: 16px;
+    display: flex;
 }
 .git {
     display: flex;
@@ -335,7 +369,7 @@ span {
 [class^="box-"].blur {
     filter: blur(4px);
 }
-@media screen and (max-width: 1039px) {
+@media screen and (max-width: 1094px) {
     .super-box {
         position: absolute;
         z-index: 1;
@@ -463,6 +497,9 @@ span {
         border-bottom-right-radius: 0;
         border-bottom: transparent;
     }
+    .copyrights-wrapper {
+        border-bottom-left-radius: 0;
+    }
     .projects-lists {
         flex-direction: column;
     }
@@ -498,7 +535,7 @@ span {
         flex-wrap: wrap;
     }
 }
-@media screen and (max-width: 529px) {
+@media screen and (max-width: 610px) {
     .super-box {
         grid-template-columns: auto;
         grid-template-rows: auto 1fr 1fr 1fr 1fr 1fr auto auto auto auto;
