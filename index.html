@@ -15,6 +15,15 @@
 </head>
 <body>
     <header class="header box-0">
+        <div class="switcher-wrapper">
+            <img class="languages" src="./assets/img/uk.png" alt="English">
+            <div class="switcher">
+                <div class="tumbler-wrapper">
+                    <div class="tumbler"></div>
+                </div>
+            </div>
+            <img class="languages" src="./assets/img/russia.png" alt="Russian">
+        </div>
         <button id="burger" class="burger-menu">
             <span class="bar bar-1"></span>
             <span class="bar bar-2"></span>
@@ -25,35 +34,35 @@
             <ul class="nav-list-mobile">
                 <li class="nav-item-mobile">
                     <a href="#top" class="nav-link">
-                        <div class="link-button">
+                        <div class="link-button top_button_mobile">
                             Top
                         </div>
                     </a>
                 </li>
                 <li class="nav-item-mobile">
                     <a href="#summary" class="nav-link">
-                        <div class="link-button">
+                        <div class="link-button summary_button_mobile">
                             Summary
                         </div>
                     </a>
                 </li>
                 <li class="nav-item-mobile">
                     <a href="#skills" class="nav-link">
-                        <div class="link-button">
+                        <div class="link-button skills_button_mobile">
                             Skills
                         </div>
                     </a>
                 </li>
                 <li class="nav-item-mobile">
                     <a href="#education" class="nav-link">
-                        <div class="link-button">
+                        <div class="link-button projects_button_mobile">
                             Projects
                         </div>
                     </a>
                 </li>
                 <li class="nav-item-mobile">
                     <a href="#education" class="nav-link">
-                        <div class="link-button">
+                        <div class="link-button education_button_mobile">
                             Education
                         </div>
                     </a>
@@ -62,63 +71,72 @@
         </nav>
     </header>
     <main id="top" class="main super-box">
-        <section class="box-1">
+        <div class="box-1">
+            <div class="switcher-wrapper">
+                <img class="languages" src="./assets/img/uk.png" alt="English" width="24" height="24">
+                <div class="switcher">
+                    <div class="tumbler-wrapper">
+                        <div class="tumbler"></div>
+                    </div>
+                </div>
+                <img class="languages" src="./assets/img/russia.png" alt="Russian" width="24" height="24">
+            </div>
             <div class="nav-list-desktop">
-                <button class="button nav-item-desktop summary-button">
+                <button class="button nav-item-desktop summary_button">
                     Summary
                 </button>
-                <button class="button nav-item-desktop skills-button">
+                <button class="button nav-item-desktop skills_button">
                     Skills
                 </button>
-                <button class="button nav-item-desktop projects-button">
+                <button class="button nav-item-desktop projects_button">
                     Projects
                 </button>
-                <button class="button nav-item-desktop education-button">
+                <button class="button nav-item-desktop education_button">
                     Education
                 </button>
             </div>
-        </section>
-        <section class="box-2 photo">
+        </div>
+        <div class="box-2 photo">
             <a href="https://www.linkedin.com/in/lines14/" target="_blank">
                 <img class="selfie" src="./assets/img/selfie.jpg" alt="My photo">
             </a>
-        </section>
+        </div>
         <section id="summary" class="box-3 summary">
             <h2 class="summary-h2">
-                <span class="title">About me:</span>
+                <span class="title summary_title">About me:</span>
             </h2>
-            <section class="summary-text">
-                <p class="summary-text-1">
+            <div class="summary_text">
+                <p class="summary_text_one">
                     A professional medic by education, but I realized that the world of IT is more closer to me. 
                     I started my way with Python, then JavaScript and TypeScript appeared in the arsenal.
                 </p>
                 <div class="separator"></div>
-                <p class="summary-text-2">
+                <p class="summary_text_two">
                     Completed an internship in the Test development specialization (QA automation) at 
                     <span><a class="link a1qa" target="_blank" href="https://www.a1qa.com/">A1QA</a></span> and have experience for 6 month. 
                     I carry out the development and continuous integration of automated tests on Node.js and Python, 
                     including testing databases, REST APIs and web applications using Selenium WebDriver and WebdriverIO.
                 </p>
                 <div class="separator"></div>
-                <p class="summary-text-3">
+                <p class="summary_text_three">
                     Meanwhile practicing in freelance orders for parsing and systematization of data using Python, 
                     websites development and creating high-loaded asynchronous Telegram bots, 
                     remote Nginx and Linux server administration.
                 </p>
                 <div class="separator"></div>
-                <p class="summary-text-4">
+                <p class="summary_text_four">
                     I don't like to stand still and I'm constantly learning. 
                     There are plans to master another object-oriented programming language (Java/C#).
                 </p>
                 <div class="separator"></div>
-                <p class="summary-text-5">
+                <p class="summary_text_five">
                     As a hobby, I am engaged in the PC assembly and configuration, skiing, visiting bars, music festivals and concerts.
                 </p>
-            </section>
+            </div>
         </section>
         <section class="box-4 me">
             <h1 class="name">
-                <span class="main-span">Anton Lipatov</span>
+                <span class="main_span name_span">Anton Lipatov</span>
             </h1>
             <h2 class="speciality">
                 <span>Software Development</span>
@@ -130,10 +148,10 @@
         </section>
         <section id="skills" class="box-5 skills">
             <h2 class="skills-h2">
-                <span class="title">My skills:</span>
+                <span class="title skills_title">My skills:</span>
             </h2>
-            <section class="skills-lists">
-                <section class="skills-lists-1-2">
+            <div class="skills-lists">
+                <div class="skills-lists-1-2">
                     <ul class="skills-list-1">
                         <li class="skills-item"><img class="arrow" src="./assets/img/next.png" alt="Arrow" width="19" height="19">JavaScript</li>
                         <li class="skills-item"><img class="arrow" src="./assets/img/next.png" alt="Arrow" width="19" height="19">TypeScript</li>
@@ -150,71 +168,71 @@
                         <li class="skills-item"><img class="arrow" src="./assets/img/next.png" alt="Arrow" width="19" height="19">WebdriverIO</li>
                         <li class="skills-item"><img class="arrow" src="./assets/img/next.png" alt="Arrow" width="19" height="19">Linux</li>
                     </ul>
-                </section>
-                <section class="skills-lists-3-4">
+                </div>
+                <div class="skills-lists-3-4">
                     <ul class="skills-list-3">
                         <li class="skills-item"><img class="arrow" src="./assets/img/next.png" alt="Arrow" width="19" height="19">Aiogram</li>
                         <li class="skills-item"><img class="arrow" src="./assets/img/next.png" alt="Arrow" width="19" height="19">Flask</li>
                         <li class="skills-item"><img class="arrow" src="./assets/img/next.png" alt="Arrow" width="19" height="19">Nginx</li>
                         <li class="skills-item"><img class="arrow" src="./assets/img/next.png" alt="Arrow" width="19" height="19">Amazon AWS</li>
-                        <li class="skills-item"><img class="arrow" src="./assets/img/next.png" alt="Arrow" width="19" height="19">Setting up VPS/VDS servers</li>
-                        <li class="skills-item"><img class="arrow" src="./assets/img/next.png" alt="Arrow" width="19" height="19">Virtualization</li>
+                        <li class="skills-item vps"><img class="arrow" src="./assets/img/next.png" alt="Arrow" width="19" height="19">Setting up VPS/VDS servers</li>
+                        <li class="skills-item virtualization"><img class="arrow" src="./assets/img/next.png" alt="Arrow" width="19" height="19">Virtualization</li>
                     </ul>
                     <ul class="skills-list-4">
-                        <li class="skills-item"><img class="arrow" src="./assets/img/next.png" alt="Arrow" width="19" height="19">Process automation</li>
-                        <li class="skills-item"><img class="arrow" src="./assets/img/next.png" alt="Arrow" width="19" height="19">Functional testing</li>
-                        <li class="skills-item"><img class="arrow" src="./assets/img/next.png" alt="Arrow" width="19" height="19">Regression testing</li>
-                        <li class="skills-item"><img class="arrow" src="./assets/img/next.png" alt="Arrow" width="19" height="19">UI testing</li>
-                        <li class="skills-item"><img class="arrow" src="./assets/img/next.png" alt="Arrow" width="19" height="19">SQL database testing</li>
-                        <li class="skills-item"><img class="arrow" src="./assets/img/next.png" alt="Arrow" width="19" height="19">REST API testing</li>
+                        <li class="skills-item automation"><img class="arrow" src="./assets/img/next.png" alt="Arrow" width="19" height="19">Process automation</li>
+                        <li class="skills-item functional"><img class="arrow" src="./assets/img/next.png" alt="Arrow" width="19" height="19">Functional testing</li>
+                        <li class="skills-item regression"><img class="arrow" src="./assets/img/next.png" alt="Arrow" width="19" height="19">Regression testing</li>
+                        <li class="skills-item sql"><img class="arrow" src="./assets/img/next.png" alt="Arrow" width="19" height="19">SQL database testing</li>
+                        <li class="skills-item api"><img class="arrow" src="./assets/img/next.png" alt="Arrow" width="19" height="19">REST API testing</li>
+                        <li class="skills-item ui"><img class="arrow" src="./assets/img/next.png" alt="Arrow" width="19" height="19">UI testing</li>
                     </ul>
-                </section>
-            </section>
+                </div>
+            </div>
         </section>
         <section class="box-6 contacts">
             <h2 class="contacts-h2">
-                <span class="title">My contacts:</span>
+                <span class="title contacts_title">My contacts:</span>
             </h2>
             <ul class="contacts-list">
-                <li class="contacts-item"><img class="socials" src="./assets/img/pin.png" alt="Pin" width="17" height="17">
+                <li class="contacts-item country"><img class="socials" src="./assets/img/pin.png" alt="Pin" width="17" height="17">
                     <a class="link" href="https://www.google.kz/maps/place/Almaty" target="_blank">Kazakhstan</a>
                     <img class="socials flag" src="./assets/img/kz.png" alt="KZ" width="17" height="17">(remote-ready)
                 </li>
                 <li class="contacts-item"><img class="socials" src="./assets/img/phone-call.png" alt="Phone" width="17" height="17">
-                    <a class="link" href="tel:+77478595164">Phone: +77478595164</a>
-                </li>
-                <li class="contacts-item"><img class="socials" src="./assets/img/linkedin.png" alt="Linkedin" width="17" height="17">
-                    <a class="link" href="https://www.linkedin.com/in/lines14/" target="_blank">LinkedIn: Anton Lipatov</a>
+                    <a class="link phone" href="tel:+77478595164">Phone: +77478595164</a>
                 </li>
                 <li class="contacts-item"><img class="socials" src="./assets/img/telegram.png" alt="Telegram" width="17" height="17">
-                    <a class="link" href="https://t.me/lines14" target="_blank">Telegram: lines14</a>
+                    <a class="link telegram" href="https://t.me/lines14" target="_blank">Telegram: lines14</a>
+                </li>
+                <li class="contacts-item"><img class="socials" src="./assets/img/linkedin.png" alt="Linkedin" width="17" height="17">
+                    <a class="link linkedin" href="https://www.linkedin.com/in/lines14/" target="_blank">LinkedIn: Anton Lipatov</a>
                 </li>
                 <li class="contacts-item"><img class="socials" src="./assets/img/email.png" alt="Email" width="17" height="17">
-                    <a class="link" href="mailto:lines14.qa@gmail.com">Email: lines14.qa@gmail.com</a>
+                    <a class="link email" href="mailto:lines14.qa@gmail.com">Email: lines14.qa@gmail.com</a>
                 </li>
             </ul>
         </section>
         <section class="box-7 projects">
             <h2 class="projects-h2">
-                <span class="title">My completed projects:</span>
+                <span class="title projects_title">My projects:</span>
             </h2>
-            <section class="projects-lists">
+            <div class="projects-lists">
                 <ul class="projects-list-1">
                     <li class="projects-item">
                         <img class="socials" src="./assets/img/selenium.svg" alt="Selenium" width="16" height="16">
-                        <a class="link" href="https://github.com/lines14/selenium_framework" target="_blank">
+                        <a class="link selenium" href="https://github.com/lines14/selenium_framework" target="_blank">
                             Node.js test-framework based on Selenium WebDriver, Mocha and Chai
                         </a>
                     </li>
                     <li class="projects-item">
                         <img class="socials" src="./assets/img/webdriverio.png" alt="WebdriverIO" width="16" height="16">
-                        <a class="link" href="https://github.com/lines14/webdriver.io_framework" target="_blank">
+                        <a class="link wdio" href="https://github.com/lines14/webdriver.io_framework" target="_blank">
                             Node.js test-framework based on WebdriverIO, Axios, Mocha and Chai
                         </a>
                     </li>
                     <li class="projects-item">
                         <img class="socials" src="./assets/img/gardeners.svg" alt="Plants" width="16" height="16">
-                        <a class="link" href="https://lines14-plants.netlify.app/" target="_blank">
+                        <a class="link gardeners" href="https://lines14-plants.netlify.app/" target="_blank">
                             Gardeners company's web-site pet-project
                         </a>
                     </li>
@@ -222,71 +240,69 @@
                 <ul class="projects-list-2">
                     <li class="projects-item">
                         <img class="socials" src="./assets/ico/favicon.ico" alt="CV" width="16" height="16">
-                        <a class="link" href="https://lines14.netlify.app/" target="_blank">
+                        <a class="link cv" href="https://lines14.netlify.app/" target="_blank">
                         This CV web-site
                         </a>
                     </li>
                     <li class="projects-item">
                         <img class="socials" src="./assets/img/aiogram.png" alt="Aiogram" width="16" height="16">
-                        <a class="link" href="https://github.com/lines14/judicial_telegram_bot" target="_blank">
+                        <a class="link bot" href="https://github.com/lines14/judicial_telegram_bot" target="_blank">
                             High-loaded Telegram bot based on Python and Aiogram with built-in CRM
                         </a>
                     </li>
                     <li class="projects-item">
                         <img class="socials" src="./assets/img/postgresql.svg" alt="PostgreSQL" width="16" height="16">
-                        <a class="link" href="https://github.com/lines14/python_templates/blob/main/Psycopg2%20remote%20DB%20autoclose%20transactions%20connector.py" target="_blank">
+                        <a class="link postgre" href="https://github.com/lines14/python_templates/blob/main/Psycopg2%20remote%20DB%20autoclose%20transactions%20connector.py" target="_blank">
                             Remote PostgreSQL administration tools for Python projects
                         </a>
                     </li>
                 </ul>
-            </section>
+            </div>
         </section>
-        <section class="box-8 english-age">
+        <div class="box-8 english-age">
             <section class="english">
                 <h2 class="english-h2">
-                    <span>My english level is:</span>
+                    <span class="english_title">My english level is:</span>
                 </h2>
                 <h3 class="english-text">
-                    <span class="main-span">B1</span>
+                    <span class="main_span">B1</span>
                 </h3>
             </section>
             <section class="age">
                 <h2 class="age-h2">
-                    <span>My age is:</span>
+                    <span class="age_title">My age is:</span>
                 </h2>
                 <h3 class="age-text">
-                    <span class="main-span">29</span>
+                    <span class="main_span">29</span>
                 </h3>
             </section>
-        </section>
+        </div>
         <section class="box-9 education">
             <h2 class="education-h2">
-                <span class="title">My education:</span>
+                <span class="title education_title">My education:</span>
             </h2>
             <ul class="education-list">
-                <li class="education-item"><img class="socials" src="./assets/img/check.png" alt="Complete" width="16" height="16">Moscow Medical College No.7 / Russian State Medical University - paramedic</li>
-                <li class="education-item"><img class="socials" src="./assets/img/check.png" alt="Complete" width="16" height="16">Moscow Aviation Institute - Python development, refresher course</li>
+                <li class="education-item medicine"><img class="socials" src="./assets/img/check.png" alt="Complete" width="16" height="16">Moscow Medical College No.7 / Russian State Medical University - Paramedic</li>
+                <li class="education-item python"><img class="socials" src="./assets/img/check.png" alt="Complete" width="16" height="16">Moscow Aviation Institute - Python development, refresher course</li>
                 <li class="education-item">
-                    <img class="socials" src="./assets/img/check.png" alt="Complete" width="16" height="16"><a class="link" href="https://rs.school/" target="_blank">Rolling Scopes School - JS/FE Pre-School 2022Q4 JavaScript</a>
+                    <img class="socials" src="./assets/img/check.png" alt="Complete" width="16" height="16"><a class="link" href="https://app.rs.school/certificate/f89j65l5" target="_blank">Rolling Scopes School - JS/FE Pre-School 2022Q4 JavaScript</a>
                 </li>
-                <li class="education-item">
+                <li class="education-item qa">
                     <img class="socials" src="./assets/img/check.png" alt="Complete" width="16" height="16"><a class="link" href="https://qa-academy.lv/en/" target="_blank">QA Academy - Test Automation course</a>
                 </li>
             </ul>
         </section>
-        <section id="education" class="box-10 copyrights">
+        <div id="education" class="box-10 copyrights">
             <a class="footer-link link-button copyrights-wrapper" href="https://github.com/lines14" target="_blank">
                 <div class="git">
-                    <img src="./assets/img/github.png" alt="Github" width="20" height="20">
+                    <img class="gitPic" src="./assets/img/github.png" alt="Github" width="20" height="20">
+                    <p>GitHub:</p>
                 </div>
                 <div>
                     lines14
                 </div>
-                <p>
-                    2022
-                </p>
             </a>
-        </section>
+        </div>
     </main>
     <script defer src = 'script.js'></script>
 </body>

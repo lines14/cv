@@ -83,7 +83,7 @@ span {
     color: white;
     background-color: DarkSlateBlue;
 }
-.main-span {
+.main_span {
     color: DarkCyan;
 }
 .link {
@@ -113,6 +113,45 @@ span {
 .nav-link:hover {
     text-decoration: none;
     color: white;
+}
+.switcher-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-self: center;
+}
+.switcher {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 22px;
+    border-radius: 50px;
+    border: 2px solid Teal;
+    margin-left: 4px;
+    margin-right: 4px;
+    cursor: pointer;
+}
+.tumbler-wrapper {
+    display: flex;
+    align-items: center;
+    width: 34px;
+    height: 16px;
+    border-radius: 50px;
+}
+.tumbler {
+    width: 50%;
+    height: 100%;
+    border-radius: 50px;
+    background-color: Teal;
+    transition: all 0.2s;
+}
+.languages {
+    width: 24px;
+    height: 24px;
+}
+.tumbler.activate {
+    transform: translateX(100%);
 }
 .footer-link {
     text-decoration: none;
@@ -150,6 +189,8 @@ span {
     border-left: 2px solid Teal;
 }
 .box-1 {
+    display: flex;
+    justify-content: space-evenly;
     grid-area: box-1;
     padding: 0;
     border-top: transparent;
@@ -203,9 +244,10 @@ span {
     border-bottom-left-radius: 90px;
 }
 .nav-list-desktop {
+    width: 65%;
     height: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 .nav-list-mobile {
     display: none;
@@ -239,14 +281,14 @@ span {
     flex-direction: column;
     justify-content: space-between;
 }
-.summary-text {
+.summary_text {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     font-size: 16px;
 }
-[class^="summary-text-"] {
+[class^="summary_text_"] {
     text-align: justify;
 }
 .separator {
@@ -363,8 +405,11 @@ span {
 .git {
     display: flex;
     align-items: center;
-    margin-bottom: 1px;
-    width: 43.22px;
+    width: 100px;
+    justify-content: space-between;
+}
+.gitPic {
+    margin-bottom: 2px;
 }
 [class^="box-"].blur {
     filter: blur(4px);
@@ -392,7 +437,7 @@ span {
     }
     .header {
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-between;
         align-items: center;
         position: fixed;
         z-index: 2;
@@ -417,6 +462,21 @@ span {
         content: "";
         display: block;
         height: 0;
+    }
+    .switcher-wrapper {
+        margin-left: 10px;
+    }
+    .switcher {
+        height: 40.5px;
+        width: 76px;
+    }
+    .tumbler-wrapper {
+        height: 34.5px;
+        width: 70px;
+    }
+    .languages {
+        width: 50px;
+        height: 50px;
     }
     .burger-menu {
         margin-right: 10px;
