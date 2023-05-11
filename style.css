@@ -291,7 +291,13 @@ span {
 [class^="summary_text_"] {
     text-align: justify;
 }
+.separator-wrapper {
+    display: flex;
+    align-items: center;
+    height: 10px;
+}
 .separator {
+    width: 100%;
     border: 1px solid teal;
     opacity: 0.5;
 }
