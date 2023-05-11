@@ -115,7 +115,7 @@ if (burgerButton) {
       }
    })
 
-   for (i = 0; i < navItems.length; i++) {
+   for (let i = 0; i < navItems.length; i++) {
       navItems[i].addEventListener('click', menuClickHandler);
    }
 
@@ -190,11 +190,11 @@ if (languageSwitcher) {
    innerHTMLList.push(document.querySelector('.api'));
 
    (function getDefaultText(e) {
-      for (i of innerTextList) {
+      for (let i of innerTextList) {
          defaultText[i.classList[i.classList.length - 1]] = i.innerText;
       }
 
-      for (i of innerHTMLList) {
+      for (let i of innerHTMLList) {
          defaultText[i.classList[i.classList.length - 1]] = i.innerHTML;
       }
    })();
@@ -248,21 +248,21 @@ if (languageSwitcher) {
          postgre: 'Средства для удалённого администрирования PostgreSQL на Python проектах',
       }
 
-      for (i of innerTextList) {
+      for (let i of innerTextList) {
          i.innerText = russianProperty[i.classList[i.classList.length - 1]];
       }
 
-      for (i of innerHTMLList) {
+      for (let i of innerHTMLList) {
          i.innerHTML = russianProperty[i.classList[i.classList.length - 1]];
       }
    }
 
    function translateEnglish(e) {
-      for (i of innerTextList) {
+      for (let i of innerTextList) {
          i.innerText = defaultText[i.classList[i.classList.length - 1]];
       }
 
-      for (i of innerHTMLList) {
+      for (let i of innerHTMLList) {
          i.innerHTML = defaultText[i.classList[i.classList.length - 1]];
       }
    }
