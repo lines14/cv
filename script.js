@@ -1,145 +1,8 @@
-function findParent(target, parentClass) {
-   if (target.classList.contains(parentClass)) {
-      return target;
-   } else if (!target.parentElement) {
-      return null;
-   } else {
-      return findParent(target.parentElement, parentClass)
-   }
-}
-
-function toggleActiveButton(button, allButtons) {
-   button.classList.toggle('active');
-
-   let activeButtons = []
-   for (let j = 0; j < allButtons.length; j++) {
-      if (allButtons[j].classList.contains('active')) {
-         activeButtons.push(allButtons[j]);
-      }
-   }
-
-   if (activeButtons.length > 1) {
-      for (let i = 0; i < activeButtons.length; i++) {
-         activeButtons[i].classList.remove('active')
-         button.classList.toggle('active');
-      }
-   }
-}
-
-function blurCards(allButtons, summary, skills, projects, education) {
-   allButtons = Array.from(allButtons);
-
-   let activeButtons = []
-   for (let j = 0; j < allButtons.length; j++) {
-      if (allButtons[j].classList.contains('active')) {
-         activeButtons.push(allButtons[j]);
-      }
-   }
-
-  const summaryButton = allButtons.find((button) => button.classList.contains('summary_button'));
-  for (let k = 0; k < summary.length; k++) {
-      if (!activeButtons.length || summaryButton.classList.contains('active')) {
-         summary[k].classList.remove('blur');
-      } else {
-         summary[k].classList.add('blur');
-      }
-  }
-
-  const skillsButton = allButtons.find((button) => button.classList.contains('skills_button'))
-  for (let k = 0; k < skills.length; k++) {
-      if (!activeButtons.length || skillsButton.classList.contains('active')) {
-         skills[k].classList.remove('blur');
-      } else {
-         skills[k].classList.add('blur');
-      }
-  }
-
-  const projectsButton = allButtons.find((button) => button.classList.contains('projects_button'))
-  for (let k = 0; k < projects.length; k++) {
-      if (!activeButtons.length || projectsButton.classList.contains('active')) {
-         projects[k].classList.remove('blur');
-      } else {
-         projects[k].classList.add('blur');
-      }
-  }
-
-  const educationButton = allButtons.find((button) => button.classList.contains('education_button'))
-  for (let k = 0; k < education.length; k++) {
-      if (!activeButtons.length || educationButton.classList.contains('active')) {
-         education[k].classList.remove('blur');
-      } else {
-         education[k].classList.add('blur');
-      }
-  }
-}
-
-const all = document.querySelectorAll("*");
-if (all) {
-   const menuButtons = document.querySelectorAll('.nav-item-desktop');
-   const summary = document.querySelectorAll('.summary');
-   const skills = document.querySelectorAll('.skills');
-   const projects = document.querySelectorAll('.projects');
-   const education = document.querySelectorAll('.education');
- 
-   document.addEventListener('click', function(event) {
-      if (!event.target.closest(".nav-list-desktop") && !event.target.closest(".burger-menu") && !event.target.closest(".switcher")) {
-         for (let i = 0; i < all.length; i++) {
-            if (all[i].classList.contains('active')) {
-               all[i].classList.remove('active');
-            } else if (all[i].classList.contains('blur')) {
-               all[i].classList.remove('blur');
-            }
-         }
-      }
-   });
- 
-   for (let i = 0; i < menuButtons.length; i++) {
-      menuButtons[i].addEventListener('click', function(event) {
-         toggleActiveButton(menuButtons[i], menuButtons);
-         blurCards(menuButtons, summary, skills, projects, education);
-      });
-   }
-}
-
-const burgerButton = document.querySelector('.burger-menu');
-if (burgerButton) {
-   const navList = document.querySelector('.nav');
-   const navItems = document.querySelectorAll('.nav-item-mobile');
-   const burgerBars = document.querySelectorAll('.bar');
-   const main = document.querySelector('.main');
-
-   navList.addEventListener('click', (event) => {
-      const clickedItem = findParent(event.target, 'nav-item-mobile');
-      if (!clickedItem) {
-         menuClickHandler();
-      }
-   })
-
-   for (let i = 0; i < navItems.length; i++) {
-      navItems[i].addEventListener('click', menuClickHandler);
-   }
-
-   burgerButton.addEventListener('click', menuClickHandler);
-   main.addEventListener('click', otherClickHandler);
-
-   function menuClickHandler(e) {
-      burgerButton.classList.toggle('active');
-      navList.classList.toggle('active');
-      burgerBars.forEach(bar => bar.classList.toggle('active'));
-   }
-
-   function otherClickHandler(e) {
-      burgerButton.classList.remove('active');
-      navList.classList.remove('active');
-      burgerBars.forEach(bar => bar.classList.remove('active'));
-   }
-}
-
 const languageSwitcher = document.querySelectorAll('.switcher');
 if (languageSwitcher) {
    const innerTextList = [];
    const innerHTMLList = [];
-   const defaultText = new Object();
+   const defaultText = {};
    const tumbler = document.querySelectorAll('.tumbler');
    
    innerTextList.push(document.querySelector('.summary_title'));
@@ -153,15 +16,6 @@ if (languageSwitcher) {
    innerTextList.push(document.querySelector('.summary_text_three'));
    innerTextList.push(document.querySelector('.summary_text_four'));
    innerTextList.push(document.querySelector('.summary_text_five'));
-   innerTextList.push(document.querySelector('.summary_button'));
-   innerTextList.push(document.querySelector('.skills_button'));
-   innerTextList.push(document.querySelector('.projects_button'));
-   innerTextList.push(document.querySelector('.education_button'));
-   innerTextList.push(document.querySelector('.top_button_mobile'));
-   innerTextList.push(document.querySelector('.summary_button_mobile'));
-   innerTextList.push(document.querySelector('.skills_button_mobile'));
-   innerTextList.push(document.querySelector('.projects_button_mobile'));
-   innerTextList.push(document.querySelector('.education_button_mobile'));
    innerTextList.push(document.querySelector('.name_span'));
    innerTextList.push(document.querySelector('.phone'));
    innerTextList.push(document.querySelector('.linkedin'));
@@ -189,14 +43,14 @@ if (languageSwitcher) {
    innerHTMLList.push(document.querySelector('.sql'));
    innerHTMLList.push(document.querySelector('.api'));
 
-   (function getDefaultText(e) {
-      for (let i of innerTextList) {
-         defaultText[i.classList[i.classList.length - 1]] = i.innerText;
-      }
+   ((e) => {
+      innerTextList.forEach((element) => {
+         element.classList[element.classList.length - 1] === 'active' ? defaultText[element.classList[element.classList.length - 2]] = element.innerText : defaultText[element.classList[element.classList.length - 1]] = element.innerText
+      });
 
-      for (let i of innerHTMLList) {
-         defaultText[i.classList[i.classList.length - 1]] = i.innerHTML;
-      }
+      innerHTMLList.forEach((element) => {
+         element.classList[element.classList.length - 1] === 'active' ? defaultText[element.classList[element.classList.length - 2]] = element.innerHTML : defaultText[element.classList[element.classList.length - 1]] = element.innerHTML
+      });
    })();
 
    function translateRussian(e) {
@@ -225,10 +79,10 @@ if (languageSwitcher) {
          name_span: 'Антон Липатов',
          speciality: '<span>Инженер по разработке</span><br><span>ПО в тестировании</span><br><span>(QA автоматизация)</span>',
          country: '<img class="socials" src="./assets/img/pin.png" alt="Pin" width="17" height="17"><a class="link" href="https://www.google.kz/maps/place/Almaty" target="_blank">Казахстан</a><img class="socials flag" src="./assets/img/kz.png" alt="KZ" width="17" height="17">(или удалёнка)',
-         phone: 'Телефон: +77478595164',
-         linkedin: 'Линкед: Антон Липатов',
-         telegram: 'Телеграм: lines14',
-         email: 'Почта: lines14.qa@gmail.com',
+         phone: '+77478595164',
+         linkedin: 'Антон Липатов',
+         telegram: 'lines14',
+         email: 'lines14.qa@gmail.com',
          medicine: '<img class="socials" src="./assets/img/check.png" alt="Complete" width="16" height="16">Московский медицинский колледж №7 / Российский государственный медицинский университет - Фельдшер СМП',
          python: '<img class="socials" src="./assets/img/check.png" alt="Complete" width="16" height="16">Московский авиационный институт - Разработка на Python, курс переподготовки',
          qa: '<img class="socials" src="./assets/img/check.png" alt="Complete" width="16" height="16"><a class="link" href="https://qa-academy.lv/en/" target="_blank">QA Academy - Курс "Автоматизация тестирования"</a>',
@@ -248,34 +102,29 @@ if (languageSwitcher) {
          postgre: 'Средства для удалённого администрирования PostgreSQL на Python проектах',
       }
 
-      for (let i of innerTextList) {
-         i.innerText = russianProperty[i.classList[i.classList.length - 1]];
-      }
+      innerTextList.forEach((element) => {
+         element.classList[element.classList.length - 1] === 'active' ? element.innerText = russianProperty[element.classList[element.classList.length - 2]] : element.innerText = russianProperty[element.classList[element.classList.length - 1]]
+      });
 
-      for (let i of innerHTMLList) {
-         i.innerHTML = russianProperty[i.classList[i.classList.length - 1]];
-      }
+      innerHTMLList.forEach((element) => {
+         element.classList[element.classList.length - 1] === 'active' ? element.innerHTML = russianProperty[element.classList[element.classList.length - 2]] : element.innerHTML = russianProperty[element.classList[element.classList.length - 1]]
+      });
    }
 
-   function translateEnglish(e) {
-      for (let i of innerTextList) {
-         i.innerText = defaultText[i.classList[i.classList.length - 1]];
-      }
+   const translateEnglish = (e) => {
+      innerTextList.forEach((element) => {
+         element.classList[element.classList.length - 1] === 'active' ? element.innerText = defaultText[element.classList[element.classList.length - 2]] : element.innerText = defaultText[element.classList[element.classList.length - 1]]
+      });
 
-      for (let i of innerHTMLList) {
-         i.innerHTML = defaultText[i.classList[i.classList.length - 1]];
-      }
+      innerHTMLList.forEach((element) => {
+         element.classList[element.classList.length - 1] === 'active' ? element.innerHTML = defaultText[element.classList[element.classList.length - 2]] : element.innerHTML = defaultText[element.classList[element.classList.length - 1]]
+      });
    }
 
-   languageSwitcher.forEach(element => element.addEventListener('click', (event) => {
-      tumbler.forEach(elem => {
+   languageSwitcher.forEach((element) => element.addEventListener('click', (event) => {
+      tumbler.forEach((elem) => {
          elem.classList.toggle('activate');
-
-         if (elem.classList.contains('activate')) {
-            translateRussian();
-         } else {
-            translateEnglish();
-         }
+         elem.classList.contains('activate') ? translateRussian() : translateEnglish();
       });
    }));
 }
