@@ -1,3 +1,5 @@
+'use strict';
+
 function findParent(target, parentClass) {
    if (target.classList.contains(parentClass)) {
       return target;
