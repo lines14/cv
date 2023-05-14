@@ -1,3 +1,5 @@
+'use strict';
+
 function findParent(target, parentClass) {
    if (target.classList.contains(parentClass)) {
       return target;
@@ -139,7 +141,7 @@ const languageSwitcher = document.querySelectorAll('.switcher');
 if (languageSwitcher) {
    const innerTextList = [];
    const innerHTMLList = [];
-   const defaultText = new Object();
+   const defaultText = {};
    const tumbler = document.querySelectorAll('.tumbler');
    
    innerTextList.push(document.querySelector('.summary_title'));
@@ -191,11 +193,11 @@ if (languageSwitcher) {
 
    (function getDefaultText(e) {
       for (let i of innerTextList) {
-         defaultText[i.classList[i.classList.length - 1]] = i.innerText;
+         i.classList[i.classList.length - 1] === 'active' ? defaultText[i.classList[i.classList.length - 2]] = i.innerText : defaultText[i.classList[i.classList.length - 1]] = i.innerText;
       }
 
       for (let i of innerHTMLList) {
-         defaultText[i.classList[i.classList.length - 1]] = i.innerHTML;
+         i.classList[i.classList.length - 1] === 'active' ? defaultText[i.classList[i.classList.length - 2]] = i.innerHTML : defaultText[i.classList[i.classList.length - 1]] = i.innerHTML;
       }
    })();
 
@@ -249,21 +251,21 @@ if (languageSwitcher) {
       }
 
       for (let i of innerTextList) {
-         i.innerText = russianProperty[i.classList[i.classList.length - 1]];
+         i.classList[i.classList.length - 1] === 'active' ? i.innerText = russianProperty[i.classList[i.classList.length - 2]] : i.innerText = russianProperty[i.classList[i.classList.length - 1]];
       }
 
       for (let i of innerHTMLList) {
-         i.innerHTML = russianProperty[i.classList[i.classList.length - 1]];
+         i.classList[i.classList.length - 1] === 'active' ? i.innerHTML = russianProperty[i.classList[i.classList.length - 2]] : i.innerHTML = russianProperty[i.classList[i.classList.length - 1]];
       }
    }
 
    function translateEnglish(e) {
       for (let i of innerTextList) {
-         i.innerText = defaultText[i.classList[i.classList.length - 1]];
+         i.classList[i.classList.length - 1] === 'active' ? i.innerText = defaultText[i.classList[i.classList.length - 2]] : i.innerText = defaultText[i.classList[i.classList.length - 1]];
       }
 
       for (let i of innerHTMLList) {
-         i.innerHTML = defaultText[i.classList[i.classList.length - 1]];
+         i.classList[i.classList.length - 1] === 'active' ? i.innerHTML = defaultText[i.classList[i.classList.length - 2]] : i.innerHTML = defaultText[i.classList[i.classList.length - 1]];
       }
    }
 
