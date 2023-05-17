@@ -2,66 +2,32 @@
 
 const toggleActiveButton = (button, allButtons) => {
    button.classList.toggle('active');
-
-   let activeButtons = []
-   for (let j = 0; j < allButtons.length; j++) {
-      if (allButtons[j].classList.contains('active')) {
-         activeButtons.push(allButtons[j]);
-      }
-   }
+   const arrButtons = [...allButtons];
+   const activeButtons = arrButtons.filter((element) => element.classList.contains('active'));
 
    if (activeButtons.length > 1) {
-      for (let i = 0; i < activeButtons.length; i++) {
-         activeButtons[i].classList.remove('active')
+      activeButtons.forEach((element) => {
+         element.classList.remove('active');
          button.classList.toggle('active');
-      }
+      });
    }
 }
 
 const blurCards = (allButtons, summary, skills, projects, education) => {
-   let arrButtons = [...allButtons];
-   let activeButtons = []
-   for (let j = 0; j < arrButtons.length; j++) {
-      if (arrButtons[j].classList.contains('active')) {
-         activeButtons.push(arrButtons[j]);
-      }
-   }
+   const arrButtons = [...allButtons];
+   const activeButtons = arrButtons.filter((element) => element.classList.contains('active'));
 
-  const summaryButton = arrButtons.find((button) => button.classList.contains('summary_button'));
-  for (let k = 0; k < summary.length; k++) {
-      if (!activeButtons.length || summaryButton.classList.contains('active')) {
-         summary[k].classList.remove('blur');
-      } else {
-         summary[k].classList.add('blur');
-      }
-  }
+   const summaryButton = arrButtons.find((button) => button.classList.contains('summary_button'));
+   summary.forEach((element) => !activeButtons.length || summaryButton.classList.contains('active') ? element.classList.remove('blur') : element.classList.add('blur'));
 
-  const skillsButton = arrButtons.find((button) => button.classList.contains('skills_button'))
-  for (let k = 0; k < skills.length; k++) {
-      if (!activeButtons.length || skillsButton.classList.contains('active')) {
-         skills[k].classList.remove('blur');
-      } else {
-         skills[k].classList.add('blur');
-      }
-  }
+   const skillsButton = arrButtons.find((button) => button.classList.contains('skills_button'));
+   skills.forEach((element) => !activeButtons.length || skillsButton.classList.contains('active') ? element.classList.remove('blur') : element.classList.add('blur'));
 
-  const projectsButton = arrButtons.find((button) => button.classList.contains('projects_button'))
-  for (let k = 0; k < projects.length; k++) {
-      if (!activeButtons.length || projectsButton.classList.contains('active')) {
-         projects[k].classList.remove('blur');
-      } else {
-         projects[k].classList.add('blur');
-      }
-  }
+   const projectsButton = arrButtons.find((button) => button.classList.contains('projects_button'));
+   projects.forEach((element) => !activeButtons.length || projectsButton.classList.contains('active') ? element.classList.remove('blur') : element.classList.add('blur'));
 
-  const educationButton = arrButtons.find((button) => button.classList.contains('education_button'))
-  for (let k = 0; k < education.length; k++) {
-      if (!activeButtons.length || educationButton.classList.contains('active')) {
-         education[k].classList.remove('blur');
-      } else {
-         education[k].classList.add('blur');
-      }
-  }
+   const educationButton = arrButtons.find((button) => button.classList.contains('education_button'));
+   education.forEach((element) => !activeButtons.length || educationButton.classList.contains('active') ? element.classList.remove('blur') : element.classList.add('blur'));
 }
 
 const all = document.querySelectorAll("*");
@@ -74,22 +40,22 @@ if (all) {
  
    document.addEventListener('click', (event) => {
       if (!event.target.closest(".nav-list-desktop") && !event.target.closest(".burger-menu") && !event.target.closest(".switcher")) {
-         for (let i = 0; i < all.length; i++) {
-            if (all[i].classList.contains('active')) {
-               all[i].classList.remove('active');
-            } else if (all[i].classList.contains('blur')) {
-               all[i].classList.remove('blur');
+         all.forEach((element) => {
+            if (element.classList.contains('active')) {
+               element.classList.remove('active');
+            } else if (element.classList.contains('blur')) {
+               element.classList.remove('blur');
             }
-         }
+         });
       }
    });
- 
-   for (let i = 0; i < menuButtons.length; i++) {
-      menuButtons[i].addEventListener('click', (event) => {
-         toggleActiveButton(menuButtons[i], menuButtons);
+
+   menuButtons.forEach((element) => {
+      element.addEventListener('click', (event) => {
+         toggleActiveButton(element, menuButtons);
          blurCards(menuButtons, summary, skills, projects, education);
       });
-   }
+   });
 }
 
 const burgerButton = document.querySelector('.burger-menu');
@@ -105,7 +71,7 @@ if (burgerButton) {
       } else if (!target.parentElement) {
          return null;
       } else {
-         return findParent(target.parentElement, parentClass)
+         return findParent(target.parentElement, parentClass);
       }
    }
 
@@ -128,10 +94,7 @@ if (burgerButton) {
       }
    })
 
-   for (let i = 0; i < navItems.length; i++) {
-      navItems[i].addEventListener('click', menuClickHandler);
-   }
-
+   navItems.forEach((element) => element.addEventListener('click', menuClickHandler));
    burgerButton.addEventListener('click', menuClickHandler);
    main.addEventListener('click', otherClickHandler);
 }
@@ -191,13 +154,13 @@ if (languageSwitcher) {
    innerHTMLList.push(document.querySelector('.api'));
 
    ((e) => {
-      for (let i of innerTextList) {
-         i.classList[i.classList.length - 1] === 'active' ? defaultText[i.classList[i.classList.length - 2]] = i.innerText : defaultText[i.classList[i.classList.length - 1]] = i.innerText;
-      }
+      innerTextList.forEach((element) => {
+         element.classList[element.classList.length - 1] === 'active' ? defaultText[element.classList[element.classList.length - 2]] = element.innerText : defaultText[element.classList[element.classList.length - 1]] = element.innerText
+      });
 
-      for (let i of innerHTMLList) {
-         i.classList[i.classList.length - 1] === 'active' ? defaultText[i.classList[i.classList.length - 2]] = i.innerHTML : defaultText[i.classList[i.classList.length - 1]] = i.innerHTML;
-      }
+      innerHTMLList.forEach((element) => {
+         element.classList[element.classList.length - 1] === 'active' ? defaultText[element.classList[element.classList.length - 2]] = element.innerHTML : defaultText[element.classList[element.classList.length - 1]] = element.innerHTML
+      });
    })();
 
    const translateRussian = (e) => {
@@ -249,34 +212,29 @@ if (languageSwitcher) {
          postgre: 'Средства для удалённого администрирования PostgreSQL на Python проектах',
       }
 
-      for (let i of innerTextList) {
-         i.classList[i.classList.length - 1] === 'active' ? i.innerText = russianProperty[i.classList[i.classList.length - 2]] : i.innerText = russianProperty[i.classList[i.classList.length - 1]];
-      }
+      innerTextList.forEach((element) => {
+         element.classList[element.classList.length - 1] === 'active' ? element.innerText = russianProperty[element.classList[element.classList.length - 2]] : element.innerText = russianProperty[element.classList[element.classList.length - 1]]
+      });
 
-      for (let i of innerHTMLList) {
-         i.classList[i.classList.length - 1] === 'active' ? i.innerHTML = russianProperty[i.classList[i.classList.length - 2]] : i.innerHTML = russianProperty[i.classList[i.classList.length - 1]];
-      }
+      innerHTMLList.forEach((element) => {
+         element.classList[element.classList.length - 1] === 'active' ? element.innerHTML = russianProperty[element.classList[element.classList.length - 2]] : element.innerHTML = russianProperty[element.classList[element.classList.length - 1]]
+      });
    }
 
    const translateEnglish = (e) => {
-      for (let i of innerTextList) {
-         i.classList[i.classList.length - 1] === 'active' ? i.innerText = defaultText[i.classList[i.classList.length - 2]] : i.innerText = defaultText[i.classList[i.classList.length - 1]];
-      }
+      innerTextList.forEach((element) => {
+         element.classList[element.classList.length - 1] === 'active' ? element.innerText = defaultText[element.classList[element.classList.length - 2]] : element.innerText = defaultText[element.classList[element.classList.length - 1]]
+      });
 
-      for (let i of innerHTMLList) {
-         i.classList[i.classList.length - 1] === 'active' ? i.innerHTML = defaultText[i.classList[i.classList.length - 2]] : i.innerHTML = defaultText[i.classList[i.classList.length - 1]];
-      }
+      innerHTMLList.forEach((element) => {
+         element.classList[element.classList.length - 1] === 'active' ? element.innerHTML = defaultText[element.classList[element.classList.length - 2]] : element.innerHTML = defaultText[element.classList[element.classList.length - 1]]
+      });
    }
 
    languageSwitcher.forEach((element) => element.addEventListener('click', (event) => {
       tumbler.forEach((elem) => {
          elem.classList.toggle('activate');
-
-         if (elem.classList.contains('activate')) {
-            translateRussian();
-         } else {
-            translateEnglish();
-         }
+         elem.classList.contains('activate') ? translateRussian() : translateEnglish();
       });
    }));
 }
