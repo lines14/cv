@@ -1,16 +1,6 @@
 'use strict';
 
-function findParent(target, parentClass) {
-   if (target.classList.contains(parentClass)) {
-      return target;
-   } else if (!target.parentElement) {
-      return null;
-   } else {
-      return findParent(target.parentElement, parentClass)
-   }
-}
-
-function toggleActiveButton(button, allButtons) {
+const toggleActiveButton = (button, allButtons) => {
    button.classList.toggle('active');
 
    let activeButtons = []
@@ -28,17 +18,16 @@ function toggleActiveButton(button, allButtons) {
    }
 }
 
-function blurCards(allButtons, summary, skills, projects, education) {
-   allButtons = Array.from(allButtons);
-
+const blurCards = (allButtons, summary, skills, projects, education) => {
+   let arrButtons = [...allButtons];
    let activeButtons = []
-   for (let j = 0; j < allButtons.length; j++) {
-      if (allButtons[j].classList.contains('active')) {
-         activeButtons.push(allButtons[j]);
+   for (let j = 0; j < arrButtons.length; j++) {
+      if (arrButtons[j].classList.contains('active')) {
+         activeButtons.push(arrButtons[j]);
       }
    }
 
-  const summaryButton = allButtons.find((button) => button.classList.contains('summary_button'));
+  const summaryButton = arrButtons.find((button) => button.classList.contains('summary_button'));
   for (let k = 0; k < summary.length; k++) {
       if (!activeButtons.length || summaryButton.classList.contains('active')) {
          summary[k].classList.remove('blur');
@@ -47,7 +36,7 @@ function blurCards(allButtons, summary, skills, projects, education) {
       }
   }
 
-  const skillsButton = allButtons.find((button) => button.classList.contains('skills_button'))
+  const skillsButton = arrButtons.find((button) => button.classList.contains('skills_button'))
   for (let k = 0; k < skills.length; k++) {
       if (!activeButtons.length || skillsButton.classList.contains('active')) {
          skills[k].classList.remove('blur');
@@ -56,7 +45,7 @@ function blurCards(allButtons, summary, skills, projects, education) {
       }
   }
 
-  const projectsButton = allButtons.find((button) => button.classList.contains('projects_button'))
+  const projectsButton = arrButtons.find((button) => button.classList.contains('projects_button'))
   for (let k = 0; k < projects.length; k++) {
       if (!activeButtons.length || projectsButton.classList.contains('active')) {
          projects[k].classList.remove('blur');
@@ -65,7 +54,7 @@ function blurCards(allButtons, summary, skills, projects, education) {
       }
   }
 
-  const educationButton = allButtons.find((button) => button.classList.contains('education_button'))
+  const educationButton = arrButtons.find((button) => button.classList.contains('education_button'))
   for (let k = 0; k < education.length; k++) {
       if (!activeButtons.length || educationButton.classList.contains('active')) {
          education[k].classList.remove('blur');
@@ -83,7 +72,7 @@ if (all) {
    const projects = document.querySelectorAll('.projects');
    const education = document.querySelectorAll('.education');
  
-   document.addEventListener('click', function(event) {
+   document.addEventListener('click', (event) => {
       if (!event.target.closest(".nav-list-desktop") && !event.target.closest(".burger-menu") && !event.target.closest(".switcher")) {
          for (let i = 0; i < all.length; i++) {
             if (all[i].classList.contains('active')) {
@@ -96,7 +85,7 @@ if (all) {
    });
  
    for (let i = 0; i < menuButtons.length; i++) {
-      menuButtons[i].addEventListener('click', function(event) {
+      menuButtons[i].addEventListener('click', (event) => {
          toggleActiveButton(menuButtons[i], menuButtons);
          blurCards(menuButtons, summary, skills, projects, education);
       });
@@ -109,6 +98,28 @@ if (burgerButton) {
    const navItems = document.querySelectorAll('.nav-item-mobile');
    const burgerBars = document.querySelectorAll('.bar');
    const main = document.querySelector('.main');
+
+   const findParent = (target, parentClass) => {
+      if (target.classList.contains(parentClass)) {
+         return target;
+      } else if (!target.parentElement) {
+         return null;
+      } else {
+         return findParent(target.parentElement, parentClass)
+      }
+   }
+
+   const menuClickHandler = (e) => {
+      burgerButton.classList.toggle('active');
+      navList.classList.toggle('active');
+      burgerBars.forEach((bar) => bar.classList.toggle('active'));
+   }
+
+   const otherClickHandler = (e) => {
+      burgerButton.classList.remove('active');
+      navList.classList.remove('active');
+      burgerBars.forEach((bar) => bar.classList.remove('active'));
+   }
 
    navList.addEventListener('click', (event) => {
       const clickedItem = findParent(event.target, 'nav-item-mobile');
@@ -123,18 +134,6 @@ if (burgerButton) {
 
    burgerButton.addEventListener('click', menuClickHandler);
    main.addEventListener('click', otherClickHandler);
-
-   function menuClickHandler(e) {
-      burgerButton.classList.toggle('active');
-      navList.classList.toggle('active');
-      burgerBars.forEach(bar => bar.classList.toggle('active'));
-   }
-
-   function otherClickHandler(e) {
-      burgerButton.classList.remove('active');
-      navList.classList.remove('active');
-      burgerBars.forEach(bar => bar.classList.remove('active'));
-   }
 }
 
 const languageSwitcher = document.querySelectorAll('.switcher');
@@ -191,7 +190,7 @@ if (languageSwitcher) {
    innerHTMLList.push(document.querySelector('.sql'));
    innerHTMLList.push(document.querySelector('.api'));
 
-   (function getDefaultText(e) {
+   ((e) => {
       for (let i of innerTextList) {
          i.classList[i.classList.length - 1] === 'active' ? defaultText[i.classList[i.classList.length - 2]] = i.innerText : defaultText[i.classList[i.classList.length - 1]] = i.innerText;
       }
@@ -201,7 +200,7 @@ if (languageSwitcher) {
       }
    })();
 
-   function translateRussian(e) {
+   const translateRussian = (e) => {
       const russianProperty = {
          summary_title: 'Обо мне:',
          skills_title: 'Мои навыки:',
@@ -259,7 +258,7 @@ if (languageSwitcher) {
       }
    }
 
-   function translateEnglish(e) {
+   const translateEnglish = (e) => {
       for (let i of innerTextList) {
          i.classList[i.classList.length - 1] === 'active' ? i.innerText = defaultText[i.classList[i.classList.length - 2]] : i.innerText = defaultText[i.classList[i.classList.length - 1]];
       }
@@ -269,8 +268,8 @@ if (languageSwitcher) {
       }
    }
 
-   languageSwitcher.forEach(element => element.addEventListener('click', (event) => {
-      tumbler.forEach(elem => {
+   languageSwitcher.forEach((element) => element.addEventListener('click', (event) => {
+      tumbler.forEach((elem) => {
          elem.classList.toggle('activate');
 
          if (elem.classList.contains('activate')) {
