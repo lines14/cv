@@ -369,12 +369,16 @@ span {
 }
 .projects {
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
+    padding: 13.4px;
 }
 .projects-lists {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
+}
+.projects-list-2 {
+    align-self: flex-end;
 }
 .projects-item {
     display: flex;
@@ -399,6 +403,9 @@ span {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+.education-list {
+    align-self: flex-end;
 }
 .education-item {
     font-size: 15px;
@@ -546,20 +553,6 @@ span {
     justify-content: space-between;
     border-bottom-left-radius: 0;
     font-size: 15px;
-}
-.projects-lists {
-    flex-direction: column;
-}
-.projects-list-1 {
-    order: 1;
-    align-self: flex-end;
-}
-.projects-list-2 {
-    order: 0;
-    align-self: flex-end;
-}
-.education-list {
-    align-self: flex-end;
 }
 @media screen and (max-width: 690px) {
     .skills-lists {
