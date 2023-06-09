@@ -131,19 +131,22 @@ if (languageSwitcher) {
    innerTextList.push(document.querySelector('.linkedin'));
    innerTextList.push(document.querySelector('.telegram'));
    innerTextList.push(document.querySelector('.email'));
-   innerTextList.push(document.querySelector('.selenium'));
+   innerTextList.push(document.querySelector('.selenium_js'));
+   innerTextList.push(document.querySelector('.selenium_py'));
    innerTextList.push(document.querySelector('.wdio'));
    innerTextList.push(document.querySelector('.gardeners'));
+   innerTextList.push(document.querySelector('.mkruna'));
    innerTextList.push(document.querySelector('.cv'));
    innerTextList.push(document.querySelector('.bot'));
    innerTextList.push(document.querySelector('.postgre'));
+   innerTextList.push(document.querySelector('.rsschool'));
+   innerTextList.push(document.querySelector('.a1qa_course'));
 
    innerHTMLList.push(document.querySelector('.summary_text_two'));
    innerHTMLList.push(document.querySelector('.speciality'));
    innerHTMLList.push(document.querySelector('.country'));
    innerHTMLList.push(document.querySelector('.medicine'));
    innerHTMLList.push(document.querySelector('.python'));
-   innerHTMLList.push(document.querySelector('.qa'));
    innerHTMLList.push(document.querySelector('.vps'));
    innerHTMLList.push(document.querySelector('.virtualization'));
    innerHTMLList.push(document.querySelector('.automation'));
@@ -166,12 +169,12 @@ if (languageSwitcher) {
    const translateRussian = (e) => {
       const russianProperty = {
          summary_title: 'Обо мне:',
-         skills_title: 'Мои навыки:',
-         projects_title: 'Мои проекты:',
-         education_title: 'Моё образование:',
-         contacts_title: 'Мои контакты:',
-         english_title: 'Мой английский:',
-         age_title: 'Мой возраст:',
+         skills_title: 'Навыки:',
+         projects_title: 'Проекты:',
+         education_title: 'Образование:',
+         contacts_title: 'Контакты:',
+         english_title: 'Английский:',
+         age_title: 'Возраст:',
          summary_text_one: 'По образованию профессиональный медик, но я понял, что мир IT мне гораздо ближе. Я начал свой путь с Python, затем в арсенале появились JavaScript и TypeScript.',
          summary_text_two: 'Прошел стажировку по специальности "Автоматизация тестирования" в <span><a class="link a1qa" target="_blank" href="https://www.a1qa.com/">A1QA</a></span> и имею опыт работы в течение 6 месяцев. Я занимаюсь разработкой и непрерывной интеграцией автоматизированных тестов на Node.js и Python, включая тестирование баз данных, REST API и веб-приложений с использованием Selenium WebDriver и WebdriverIO.',
          summary_text_three: 'Параллельно практикую выполнение фриланс заказов на парсинг и систематизацию данных с использованием Python, разработку веб-сайтов и создание высоконагруженных асинхронных Telegram-ботов, удаленное администрирование серверов Nginx и Linux.',
@@ -195,7 +198,6 @@ if (languageSwitcher) {
          email: 'Почта: lines14.qa@gmail.com',
          medicine: '<img class="socials" src="./assets/img/check.png" alt="Complete" width="16" height="16">Московский медицинский колледж №7 / Российский государственный медицинский университет - Фельдшер СМП',
          python: '<img class="socials" src="./assets/img/check.png" alt="Complete" width="16" height="16">Московский авиационный институт - Разработка на Python, курс переподготовки',
-         qa: '<img class="socials" src="./assets/img/check.png" alt="Complete" width="16" height="16"><a class="link" href="https://qa-academy.lv/en/" target="_blank">QA Academy - Курс "Автоматизация тестирования"</a>',
          vps: '<img class="arrow" src="./assets/img/next.png" alt="Arrow" width="19" height="19">Настройка VPS/VDS серверов',
          virtualization: '<img class="arrow" src="./assets/img/next.png" alt="Arrow" width="19" height="19">Виртуализация',
          automation: '<img class="arrow" src="./assets/img/next.png" alt="Arrow" width="19" height="19">Автоматизация',
@@ -204,12 +206,16 @@ if (languageSwitcher) {
          ui: '<img class="arrow" src="./assets/img/next.png" alt="Arrow" width="19" height="19">UI тестирование',
          sql: '<img class="arrow" src="./assets/img/next.png" alt="Arrow" width="19" height="19">Тесты баз данных SQL',
          api: '<img class="arrow" src="./assets/img/next.png" alt="Arrow" width="19" height="19">Тестирование REST API',
-         selenium: 'Node.js тест-фреймворк на базе Selenium WebDriver, Mocha и Chai',
-         wdio: 'Node.js тест-фреймворк на базе WebdriverIO, Axios, Mocha и Chai',
+         selenium_js: 'Node.js AQA тест-фреймворк на базе Selenium WebDriver, Mocha и Chai',
+         selenium_py: 'Python AQA тест-фреймворк на базе Selenium WebDriver и Pytest',
+         wdio: 'Node.js AQA тест-фреймворк на базе WebdriverIO, Axios, Mocha и Chai',
          gardeners: 'Веб-сайт садоводческой компании (пет-проект)',
+         mkruna: 'Веб-сайт компании по анализу данных',
          cv: 'Этот веб-сайт с резюме',
          bot: 'Высоконагруженный Телеграм бот на базе Python и Aiogram с встроенной CRM',
-         postgre: 'Средства для удалённого администрирования PostgreSQL на Python проектах',
+         postgre: 'Средства для удалённой работы с PostgreSQL на Python',
+         rsschool: 'Rolling Scopes School - JS/FE Pre-School 2022Q4 JavaScript (ссылка с сертификатом)',
+         a1qa_course: 'A1QA Training center - Курс "QA автоматизация тестирования" (ссылка с сертификатом)',
       }
 
       innerTextList.forEach((element) => {
