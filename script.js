@@ -214,8 +214,8 @@ if (languageSwitcher) {
          cv: 'Этот веб-сайт с резюме',
          bot: 'Высоконагруженный Телеграм бот на базе Python и Aiogram с встроенной CRM',
          postgre: 'Средства для удалённой работы с PostgreSQL на Python',
-         rsschool: 'Rolling Scopes School - JS/FE Pre-School 2022Q4 JavaScript (ссылка с сертификатом)',
-         a1qa_course: 'A1QA Training center - Курс "QA автоматизация тестирования" (ссылка с сертификатом)',
+         rsschool: 'RS School - JS/FE Pre-School 2022Q4 JavaScript (ссылка с сертификатом)',
+         a1qa_course: 'A1QA Training center - Курс QA автоматизации тестирования (ссылка с сертификатом)',
       }
 
       innerTextList.forEach((element) => {

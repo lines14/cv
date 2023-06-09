@@ -419,7 +419,7 @@ span {
 [class^="box-"].blur {
     filter: blur(4px);
 }
-@media screen and (max-width: 1163px) {
+@media screen and (max-width: 1419px) {
     .super-box {
         position: absolute;
         z-index: 1;
@@ -568,15 +568,27 @@ span {
         flex-direction: column;
     }
     .projects-list-1 {
-        order: 1;
         align-self: flex-end;
     }
     .projects-list-2 {
-        order: 0;
         align-self: flex-end;
     }
     .education-list {
         align-self: flex-end;
+    }
+    .projects-item {
+        width: 716px;
+    }
+}
+@media screen and (max-width: 750px) {
+    .projects-item {
+        width: 100%;
+    }
+    .projects-list-1 {
+        width: 100%;
+    }
+    .projects-list-2 {
+        width: 100%;
     }
 }
 @media screen and (max-width: 690px) {
