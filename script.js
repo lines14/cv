@@ -56,7 +56,7 @@ if (languageSwitcher) {
       });
    })();
 
-   function translateRussian(e) {
+   (function translateRussian(e) {
       const russianProperty = {
          summary_title: 'Обо мне:',
          skills_title: 'Навыки:',
@@ -66,7 +66,7 @@ if (languageSwitcher) {
          english_title: 'Английский:',
          age_title: 'Возраст:',
          summary_text_one: 'По образованию профессиональный медик, но я понял, что мир IT мне гораздо ближе. Я начал свой путь с Python, затем в арсенале появились JavaScript и TypeScript.',
-         summary_text_two: 'Прошел стажировку по специальности "Автоматизация тестирования" в <span><a class="link a1qa" target="_blank" href="https://www.a1qa.com/">A1QA</a></span> и имею опыт работы в течение 6 месяцев. Я занимаюсь разработкой и непрерывной интеграцией автоматизированных тестов на Node.js и Python, включая тестирование баз данных, REST API и веб-приложений с использованием Selenium WebDriver и WebdriverIO.',
+         summary_text_two: 'Прошел стажировку по специальности "Автоматизация тестирования" в <span><a class="link a1qa" target="_blank" href="https://www.a1qa.com/">A1QA</a></span> и имею опыт работы в течение 6 месяцев. Я занимаюсь разработкой и непрерывной интеграцией автоматизированных тестов на Node.js и Python, включая тестирование баз данных, REST API и веб-приложений с использованием Selenium WebDriver, Cypress и WebdriverIO.',
          summary_text_three: 'Параллельно практикую выполнение фриланс заказов на парсинг и систематизацию данных с использованием Python, разработку веб-сайтов и создание высоконагруженных асинхронных Telegram-ботов, удаленное администрирование серверов Nginx и Linux.',
          summary_text_four: 'Я не люблю стоять на месте и постоянно учусь. Есть планы освоить еще один объектно-ориентированный язык программирования (Java/C#).',
          summary_text_five: 'В качестве хобби я занимаюсь сборкой и настройкой ПК, катаюсь на горных лыжах, посещаю бары, музыкальные фестивали и концерты.',
@@ -115,7 +115,7 @@ if (languageSwitcher) {
       innerHTMLList.forEach((element) => {
          element.classList[element.classList.length - 1] === 'active' ? element.innerHTML = russianProperty[element.classList[element.classList.length - 2]] : element.innerHTML = russianProperty[element.classList[element.classList.length - 1]]
       });
-   }
+   })();
 
    const translateEnglish = (e) => {
       innerTextList.forEach((element) => {
