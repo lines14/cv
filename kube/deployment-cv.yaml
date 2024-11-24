@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cv
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cv
+  template:
+    metadata:
+      labels:
+        app: cv
+    spec:
+      containers:
+      - name: cv
+        image: lines14/cv:latest
+        ports:
+        - name: cv-port
+          containerPort: 3000
+      imagePullSecrets:
+      - name: docker-credentials
